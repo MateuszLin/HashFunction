@@ -23,6 +23,9 @@ namespace Haszownie
         public MainWindow()
         {
             InitializeComponent();
+            int a = Hash.HashFunction("Mateusz");
+
+
         }
     }
 }
