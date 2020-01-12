@@ -23,8 +23,16 @@ namespace Haszownie
         public MainWindow()
         {
             InitializeComponent();
-            int a = Hash.HashFunction("Mateusz");
+            var a = new Hash(113);
+            //a.Add("Mateusz");
+            //a.Add("Michał");
+            //a.Add("Amadeusz");
 
+            //a.Find("Michał");
+            //a.Find("Amadeusz");
+
+            //a.Remove("Mateusz");
+            //a.Find("Mateusz");
 
         }
     }
