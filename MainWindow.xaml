@@ -5,8 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Haszownie"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Hash" Height="450" Width="800" Background="#FF5D5A5A">
     <Grid>
-        
+        <DataGrid x:Name="dataGrid" Margin="427,10,0,0" Background="#FF817F7F" GridLinesVisibility="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left" Height="340" Width="355">
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Style.Resources>
+                        <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}"
+                                         Color="{x:Static SystemColors.HighlightColor}"/>
+                    </Style.Resources>
+                </Style>
+            </DataGrid.RowStyle>
+        </DataGrid>
+        <TextBox x:Name="peselFindTb" HorizontalAlignment="Left" Height="23" Margin="216,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
+        <Label Content="Pesel" HorizontalAlignment="Left" Margin="264,26,0,0" VerticalAlignment="Top" Width="98"/>
+        <TextBox x:Name="peselTb" HorizontalAlignment="Left" Height="23" Margin="4,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
+        <Label Content="Pesel" HorizontalAlignment="Left" Margin="52,26,0,0" VerticalAlignment="Top" Width="98"/>
+        <TextBox x:Name="nameTb" HorizontalAlignment="Left" Height="23" Margin="4,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
+        <Label Content="Name" HorizontalAlignment="Left" Margin="52,80,0,0" VerticalAlignment="Top" Width="98"/>
+        <TextBox x:Name="surnameTb" HorizontalAlignment="Left" Height="23" Margin="4,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
+        <Label Content="Surname" HorizontalAlignment="Left" Margin="52,134,0,0" VerticalAlignment="Top" Width="98"/>
+        <TextBox x:Name="peselRemoveTb" HorizontalAlignment="Left" Height="23" Margin="4,339,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
+        <Label Content="Pesel" HorizontalAlignment="Left" Margin="52,308,0,0" VerticalAlignment="Top" Width="98"/>
+        <Label Content="Add new Person" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top" Width="210" FontWeight="Bold" FontSize="14"/>
+        <Label Content="Find Person" HorizontalAlignment="Left" Margin="233,8,0,0" VerticalAlignment="Top" Width="210" FontSize="14" FontWeight="Bold"/>
+        <Label Content="Remove Person" HorizontalAlignment="Left" Margin="10,274,0,0" VerticalAlignment="Top" Width="210" FontSize="14" FontWeight="Bold"/>
+        <Button x:Name="addBtn" Content="Add" HorizontalAlignment="Left" Margin="4,208,0,0" VerticalAlignment="Top" Width="190" Click="addBtn_Click"/>
+        <Button x:Name="removeBtn" Content="Remove" HorizontalAlignment="Left" Margin="4,379,0,0" VerticalAlignment="Top" Width="190" Click="removebtn_Click"/>
+        <Button x:Name="removebtn_Copy" Content="Find" HorizontalAlignment="Left" Margin="216,96,0,0" VerticalAlignment="Top" Width="190" Click="removebtn_Copy_Click"/>
     </Grid>
+
 </Window>

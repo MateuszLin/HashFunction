@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Haszownie
 {
-    public struct KeyAndValue
+    public class KeyAndValue
     {
         public int Key { get; set; }
         public object Value { get; set; }
@@ -18,6 +18,11 @@ namespace Haszownie
 
         private int size = 113;
         private LinkedList<KeyAndValue>[] items;
+
+        public LinkedList<KeyAndValue>[] Items
+        {
+            get => items;
+        }
 
         public Hash(int size)
         {
@@ -44,12 +49,14 @@ namespace Haszownie
             return total % size;
         }
 
-        public void Add(object value)
+        public int Add(object value)
         {
             int position = HashFunction(value as IHashValue);
             LinkedList<KeyAndValue> listLinked = GetLinkedList(position);
             KeyAndValue newItem = new KeyAndValue() { Key = position, Value = value };
             listLinked.AddLast(newItem);
+
+            return position;
         }
 
         public object Find (string value)
@@ -68,7 +75,23 @@ namespace Haszownie
             return string.Empty;
         }
 
-        public void Remove(string value)
+        public int? FindAndReturnPosition(string value)
+        {
+            int position = HashFunction(value);
+            LinkedList<KeyAndValue> linkedList = GetLinkedList(position);
+
+            foreach (var item in linkedList)
+            {
+                if (item.Key.Equals(position))
+                {
+                    return position;
+                }
+            }
+
+            return null;
+        }
+
+        public int? Remove(string value)
         {
             int position = HashFunction(value);
 
@@ -88,7 +111,10 @@ namespace Haszownie
             if(itemFound)
             {
                 linkedList.Remove(foundItem);
+                return position;
             }
+
+            return null;
         }
 
         private LinkedList<KeyAndValue> GetLinkedList(int position)

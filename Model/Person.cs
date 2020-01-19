@@ -25,17 +25,28 @@ namespace Haszownie.Model
 			set { _surname = value; }
 		}
 
-		private int _age;
+		private string _pesel;
 
-		public int Age
+		public string Pesel
 		{
-			get { return _age; }
-			set { _age = value; }
+			get { return _pesel; }
+			set { _pesel = value; }
 		}
+
 
 		public string GetHashValue()
 		{
-			return Name;
+			return Pesel;
+		}
+
+		public string GetContent()
+		{
+			if(string.IsNullOrWhiteSpace(Pesel))
+			{
+				return "EMPTY";
+			}
+
+			return $"Name: {Name}, Surname: {Surname}, Pesel: {Pesel}";
 		}
 	}
 }
