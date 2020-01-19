@@ -64,12 +64,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Hash.cs" />
+    <Compile Include="Interface\IHashValue.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Haszownie.Interface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,7 @@ namespace Haszownie
     public struct KeyAndValue
     {
         public int Key { get; set; }
-        public string Value { get; set; }
+        public object Value { get; set; }
     }
     
     public class Hash
@@ -25,6 +26,10 @@ namespace Haszownie
 
         }
 
+        public int HashFunction(IHashValue s)
+        {
+            return HashFunction(s.GetHashValue());
+        }
 
         public int HashFunction(string s)
         {
@@ -39,15 +44,15 @@ namespace Haszownie
             return total % size;
         }
 
-        public void Add(string value)
+        public void Add(object value)
         {
-            int position = HashFunction(value);
+            int position = HashFunction(value as IHashValue);
             LinkedList<KeyAndValue> listLinked = GetLinkedList(position);
             KeyAndValue newItem = new KeyAndValue() { Key = position, Value = value };
             listLinked.AddLast(newItem);
         }
 
-        public string Find (string value)
+        public object Find (string value)
         {
             int position = HashFunction(value);
             LinkedList<KeyAndValue> linkedList = GetLinkedList(position);

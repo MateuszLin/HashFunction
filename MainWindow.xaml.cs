@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Haszownie.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,17 +24,6 @@ namespace Haszownie
         public MainWindow()
         {
             InitializeComponent();
-            var a = new Hash(113);
-            //a.Add("Mateusz");
-            //a.Add("Michał");
-            //a.Add("Amadeusz");
-
-            //a.Find("Michał");
-            //a.Find("Amadeusz");
-
-            //a.Remove("Mateusz");
-            //a.Find("Mateusz");
-
         }
     }
 }
