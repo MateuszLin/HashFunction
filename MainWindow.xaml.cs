@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -165,6 +166,10 @@ namespace Haszownie
             RemovePerson();
         }
 
-
+        private void peselRemoveTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("\\D+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
     }
 }
